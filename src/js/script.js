@@ -1,31 +1,31 @@
-const menuOpener = document.querySelector('.menu-opener');
+const menuOpener = document.querySelector(".menu-opener");
 
 function menuToggle() {
-  let nav = document.querySelector('header nav')
-  nav.classList.toggle('opened');
-}
+  let nav = document.querySelector("header nav");
+  nav.classList.toggle("opened");
+};
 
-menuOpener.addEventListener('click', menuToggle);
+menuOpener.addEventListener("click", menuToggle);
 
 function toggleSlider() {
-  const slides = document.querySelectorAll('input[name=slider]');
+  const slides = document.querySelectorAll("input[name=slider]");
   if (slides.length === 0) return;
 
-  let current = document.querySelector('input[name=slider]:checked');
+  let current = document.querySelector("input[name=slider]:checked");
   if (!current) {
-    current = document.querySelector('input[name=slider');
-    current.setAttribute('checked', true);
-  }
+    current = document.querySelector("input[name=slider");
+    current.setAttribute("checked", true);
+  };
 
-  let id = parseInt(current.getAttribute('id').split('-')[1]);
+  let id = parseInt(current.getAttribute("id").split("-")[1]);
   if (id + 1 <= slides.length) {
-    id++
+    id++;
   } else {
     id = 1;
-  }
+  };
 
-  for (let slider of slides) slider.removeAttribute('checked');
-  document.querySelector(`#slider-${id}`).setAttribute('checked', true);
-}
+  for (let slider of slides) slider.removeAttribute("checked");
+  document.querySelector(`#slider-${id}`).setAttribute("checked", true);
+};
 
 setInterval(toggleSlider, 5000);
